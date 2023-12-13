@@ -1,6 +1,6 @@
 package study;
 
-public class Mark implements GradeCalculator{
+public class Mark{
     private double firstAtt;
     private double secondAtt;
     private double finalScore;
