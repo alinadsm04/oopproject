@@ -1,71 +1,42 @@
-package teamproject;
+package projectSystem;
 
 import java.util.Objects;
+import java.util.Vector;
 
-/**
-* @generated
-*/
-public class ResearchProject implements Cloneable{
+
+public class ResearchProject{
     
-    /**
-    * @generated
-    */
+    
     private String topic;
-    /**
-    * @generated
-    */
     private  ResearchPaper publishedPapers;
-    /**
-    * @generated
-    */
-    private Researcher  projectParticipant;
-    
+    private Vector<Researcher> projectMembers;
     
     
 
-    /**
-    * @generated
-    */
+    
     public String getTopic() {
         return topic;
     }
-    /**
-    * @generated
-    */
     public void setTopic(String topic) {
         this.topic = topic;
     }
-    /**
-    * @generated
-    */
     public ResearchPaper getPublishedPapers() {
         return publishedPapers;
     }
-    /**
-    * @generated
-    */
-    public void  setPublishedPapers(ResearchPaper publishedPapers) {
+    public void setPublishedPapers(ResearchPaper publishedPapers) {
         this.publishedPapers = publishedPapers;
     }
-    /**
-    * @generated
-    */
-    public Researcher getProjectParticipant() {
-        return projectParticipant;
+    public Vector<Researcher> getProjectMembers(){
+    	return projectMembers;
     }
-    /**
-    * @generated
-    */
-    public void setProjectParticipant(Researcher projectParticipant) {
-        this.projectParticipant =  projectParticipant;
+    public void setProjectMembers(Vector<Researcher> projectMembers) {
+    	this.projectMembers = projectMembers;
     }
-    
-    
-    
+  
     
 	@Override
 	public int hashCode() {
-		return Objects.hash(projectParticipant, publishedPapers, topic);
+		return Objects.hash(projectMembers, publishedPapers, topic);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -76,30 +47,20 @@ public class ResearchProject implements Cloneable{
 		if (getClass() != obj.getClass())
 			return false;
 		ResearchProject other = (ResearchProject) obj;
-		return Objects.equals(projectParticipant, other.projectParticipant)
+		return Objects.equals(projectMembers, other.projectMembers)
 				&& Objects.equals(publishedPapers, other.publishedPapers) && Objects.equals(topic, other.topic);
 	}
 	@Override
 	public String toString() {
 		return "ResearchProject [topic=" + topic + ", publishedPapers=" + publishedPapers + ", projectParticipant="
-				+ projectParticipant + "]";
+				+ projectMembers + "]";
 	}
-	
-	@Override
-	public Object clone() throws CloneNotSupportedException {
-		ResearchProject project = (ResearchProject)super.clone();
-		return project;
-	}
-	
-	public void joinProject(User u) throws NonCustomerUserException{
-		if (u.getClass() != Researcher) {
-			throw NonCustomerUserException("You cannot join to project.");
-		}
-	}
+
+	//public void joinProject(User u) throws NonCustomerUserException{
+	//	if (u.getClass() != Researcher) {
+	//		throw NonCustomerUserException("You cannot join to project.");
+	//	}
+	//}
     
-    
-    
-    
-    
-    
+       
 }
