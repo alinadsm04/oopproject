@@ -1,175 +1,123 @@
-package teamproject;
+package projectSystem;
+
 
 import java.util.Date;
 import java.util.Objects;
 
-/**
-* @generated
-*/
+
 public class ResearchPaper implements Comparable<ResearchPaper>, Cloneable{
     
-    /**
-    * @generated
-    */
+    
     private String title;
-    /**
-    * @generated
-    */
     private String publisher;
-    /**
-    * @generated
-    */
-    private Date dateOfConference;
-    /**
-    * @generated
-    */
+    private Date dateOfPublication;
     private String doi;
-    /**
-    * @generated
-    */
     private int pages;
-    /**
-    * @generated
-    */
-    private Researcher authors;
-    /**
-    * @generated
-    */
+    private Researcher author;
     private Format format;
-    private String citations;
+    private int[] citations;
     private int counter = 0;
+ 
     
     
-    
-
-    /**
-    * @generated
-    */
     public String getTitle() {
         return title;
     }
-    /**
-    * @generated
-    */
+  
     public void setTitle(String title) {
         this.title = title;
     }
-    /**
-    * @generated
-    */
+   
     public String getPublisher() {
         return publisher;
     }
-    /**
-    * @generated
-    */
+   
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
-    /**
-    * @generated
-    */
+   
     public Date getDateOfConference() {
-        return dateOfConference;
+        return dateOfPublication;
     }
-    /**
-    * @generated
-    */
+  
     public void setDateOfConference(Date dateOfConference) {
-        this.dateOfConference = dateOfConference;
+        this.dateOfPublication = dateOfConference;
     }
-    /**
-    * @generated
-    */
+   
     public String getDoi() {
         return doi;
     }
-    /**
-    * @generated
-    */
+   
     public void setDoi(String doi) {
         this.doi = doi;
     }
-    /**
-    * @generated
-    */
+    
     public int getPages() {
         return pages;
     }
-    /**
-    * @generated
-    */
+   
     public void setPages(Integer pages) {
         this.pages = pages;
     }
-    /**
-    * @generated
-    */
+   
     public Researcher getAuthors() {
-        return authors;
+        return author;
     }
-    /**
-    * @generated
-    */
+  
     public void setAuthors(Researcher authors) {
-        this.authors = authors;
+        this.author = authors;
     }
-    /**
-    * @generated
-    */
+   
     public Format getFormat() {
         return format;
     }
-    /**
-    * @generated
-    */
+    
     public void setFormat(Format format) {
         this.format = format;
     }
-    public String getCitations() {
+    public int[] getCitations() {
     	return citations;
     }
-    public void setCitations(String citations) {
+    public void setCitations(int[] citations) {
     	this.citations = citations;
     }
     
     
-    
-    
-
     //                          Operations                                  
     
     public int countCitations() {
     	counter++;
     	return counter;
     }
-    /**
-    * @generated
-    */
-    public void getCitation() {
-    	if(citations.contains(publisher)){
-    		countCitations();
-    	}
-        
-    }
+    
+
     public String getCitation(Format f) {
-    	if(f == Format.BIBTEXT) {
-    		return "BibiText citation";
-    	}else if (f == Format.PLAINTEXT) {
-    		return "PlainText citation";
+    	if (f == Format.BIBTEXT) {
+    		return "ResearchPaper [title=" + title + ", publisher=" + publisher + ", dateOfPublication=" + dateOfPublication
+    				+ ", doi=" + doi + ", pages=" + pages + ", author=" + author + ", format=" + format + ", citations="
+    				+ citations + ", counter=" + counter + "]";
+    	} else {
+    		return "Title: " + title + "\n" 
+    				+ "publisher: " + publisher + "\n"
+    				+ "date of publication: " + dateOfPublication + "\n"
+    				+ "doi: " + doi + "\n"
+    				+ "pages: " + pages + "\n"
+    				+ "author: " + author + "\n"
+    				+ "format: " + format + "\n"
+    				+ "citations: " + citations;	
     	}
-    	return "";
     }
     
+   
 	@Override
 	public String toString() {
-		return "ResearchPaper [title=" + title + ", publisher=" + publisher + ", dateOfConference=" + dateOfConference
-				+ ", doi=" + doi + ", pages=" + pages + ", authors=" + authors + ", format=" + format + ", citations="
+		return "ResearchPaper [title=" + title + ", publisher=" + publisher + ", dateOfPublication=" + dateOfPublication
+				+ ", doi=" + doi + ", pages=" + pages + ", author=" + author + ", format=" + format + ", citations="
 				+ citations + ", counter=" + counter + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(authors, citations, counter, dateOfConference, doi, format, pages, publisher, title);
+		return Objects.hash(author, citations, counter, dateOfPublication, doi, format, pages, publisher, title);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -180,8 +128,8 @@ public class ResearchPaper implements Comparable<ResearchPaper>, Cloneable{
 		if (getClass() != obj.getClass())
 			return false;
 		ResearchPaper other = (ResearchPaper) obj;
-		return Objects.equals(authors, other.authors) && Objects.equals(citations, other.citations)
-				&& counter == other.counter && Objects.equals(dateOfConference, other.dateOfConference)
+		return Objects.equals(author, other.author) && Objects.equals(citations, other.citations)
+				&& counter == other.counter && Objects.equals(dateOfPublication, other.dateOfPublication)
 				&& Objects.equals(doi, other.doi) && format == other.format && pages == other.pages
 				&& Objects.equals(publisher, other.publisher) && Objects.equals(title, other.title);
 	}
@@ -194,14 +142,8 @@ public class ResearchPaper implements Comparable<ResearchPaper>, Cloneable{
     
     @Override
     public Object clone() throws CloneNotSupportedException {
-    	ResearchPaper r = (ResearchPaper)super.clone();
-    	return r;
+    	ResearchPaper paper = (ResearchPaper)super.clone();
+    	return paper;
     }
-	
-	
-	
-	
-    
-    
-    
+ 
 }
