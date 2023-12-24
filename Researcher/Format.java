@@ -1,4 +1,4 @@
-package teamproject;
+package projectSystem;
 
 public enum Format {
 	PLAINTEXT, BIBTEXT;
