@@ -1,10 +1,7 @@
-package teamproject;
+package projectSystem;
 
 public class NonCustomerUserException extends Exception{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	public NonCustomerUserException() {
