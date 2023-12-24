@@ -1,4 +1,4 @@
-package teamproject;
+package projectSystem;
 
 public abstract class ResearcherDecorator implements Researcher{
 	protected final Researcher decoratedResearcher;
