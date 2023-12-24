@@ -1,9 +1,10 @@
-package teamproject;
+package projectSystem;
 
 public interface Researcher {
 	
-	void calculateHIndex();
-	void printPapers();
-	
-
+	int calculateHIndex();
+	ResearchPaper printPapers();
+	boolean joinResearchProject();
+	ResearchProject doReseacrhProject();
+	ResearchPaper writeResearchPaper();
 }
