@@ -1,29 +1,16 @@
-package teamproject;
+package projectSystem;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-/**
-* @generated
-*/
+
 public class Journal implements Cloneable, Comparable<Journal>{
     
-    /**
-    * @generated
-    */
+   
     private String name;
-    /**
-    * @generated
-    */
     private Date publishedDate;
-    /**
-    * @generated
-    */
     private Researcher editor;
-    /**
-    * @generated
-    */
     private List<ResearchPaper> articles;
     private final NotificationService notificationService;
     
@@ -33,55 +20,28 @@ public class Journal implements Cloneable, Comparable<Journal>{
     }
     
     
-    
-    
-    
 
-    /**
-    * @generated
-    */
     public String getName() {
         return name;
     }
-    /**
-    * @generated
-    */
     public void setName(String name) {
         this.name = name;
     }
-    /**
-    * @generated
-    */
     public Date getPublishedDate() {
         return publishedDate;
     }
-    /**
-    * @generated
-    */
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
     }
-    /**
-    * @generated
-    */
     public Researcher getEditor() {
         return editor;
     }
-    /**
-    * @generated
-    */
     public void setEditor(Researcher editor) {
         this.editor = editor;
     }
-    /**
-    * @generated
-    */
     public List<ResearchPaper> getArticles() {
         return articles;
     }
-    /**
-    * @generated
-    */
     public void setArticles(List<ResearchPaper> articles) {
         this.articles = articles;
     }
@@ -95,16 +55,11 @@ public class Journal implements Cloneable, Comparable<Journal>{
 
     //                          Operations                                  
     
-    /**
-    * @generated
-    */
+   
     public ResearchPaper publishPaper() {
         //TODO
         return null;
     }
-
-
-
 
 
 
@@ -144,7 +99,5 @@ public class Journal implements Cloneable, Comparable<Journal>{
 		return j;
 	}
 	
-    
-    
     
 }
