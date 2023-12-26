@@ -1,22 +1,49 @@
-package project_shohin;
-import java.lang.System.Logger;
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
-import java.util.logging.Level;
 
+public class Admin extends User {
+    private Set<User> users;
 
-class Admin extends User {
     public Admin(String username) {
         super(username);
-        new HashSet<>();
+        this.users = new HashSet<>();
+    }
+
+
+    public void addUser(User user) {
+        if (!users.contains(user)) {
+            users.add(user);
+            System.out.println("User added: " + user.getUsername());
+        } else {
+            System.out.println("User already exists: " + user.getUsername());
+        }
+    }
+
+
+    public void removeUser(User user) {
+        if (users.contains(user)) {
+            users.remove(user);
+            System.out.println("User removed: " + user.getUsername());
+        } else {
+            System.out.println("User not found: " + user.getUsername());
+        }
+    }
+
+
+    public void viewUsers() {
+        for (User user : users) {
+            System.out.println(user.getUsername());
+        }
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Assuming there is one admin for simplicity
         Admin admin = new Admin("admin");
+        admin.startAdminConsole();
+    }
+
+
+    public void startAdminConsole() {
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("Enter a command: (add, remove, view, exit)");
@@ -26,18 +53,18 @@ class Admin extends User {
                 case "add":
                     System.out.println("Enter username to add:");
                     String addUser = scanner.nextLine().trim();
-                    admin.addUser(new User(addUser));
+                    addUser(new User(addUser));
                     break;
 
                 case "remove":
                     System.out.println("Enter username to remove:");
                     String removeUser = scanner.nextLine().trim();
-                    admin.removeUser(new User(removeUser));
+                    removeUser(new User(removeUser));
                     break;
 
                 case "view":
                     System.out.println("Users:");
-                    admin.viewUsers();
+                    viewUsers();
                     break;
 
                 case "exit":
@@ -52,4 +79,3 @@ class Admin extends User {
         }
     }
 }
-
