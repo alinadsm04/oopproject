@@ -7,6 +7,7 @@ public abstract class ResearcherDecorator implements Researcher{
 		this.decoratedResearcher = r;
 	}
 	
+	
 	public int calculateHIndex() {
 		return decoratedResearcher.calculateHIndex();
 	}
@@ -15,15 +16,15 @@ public abstract class ResearcherDecorator implements Researcher{
 		return decoratedResearcher.printPapers();
 	}
 	
-	public boolean joinResearchProject() {
+	public boolean joinResearchProject() throws FalseInstructorException {
 		return decoratedResearcher.joinResearchProject();
 	}
 	
-	public ResearchProject doResearchProject() {
+	public String doResearchProject() {
 		return decoratedResearcher.doReseacrhProject();
 	}
 	
-	public ResearchPaper writeResearchPaper() {
+	public String writeResearchPaper() {
 		return decoratedResearcher.writeResearchPaper();
 	}
 
